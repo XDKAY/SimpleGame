@@ -35,11 +35,11 @@ class Game:
         self.__game_map.draw_game_map()
         self.player = Player()
 
-        self.text_amount = Text(
-            text=f'Amount\t{self.player.describe_amount_food()}', 
+        self.text_amount_food = Text(
+            text=f'Amount food\t{self.player.describe_amount_food()}', 
             position=(0, self.config.SCREEN_SIZE)
         )
-        self.text_amount.write()
+        self.text_amount_food.write()
 
         self.text_game_over = Text(
             text='Game Over',
@@ -73,9 +73,8 @@ class Game:
                 
                 food.hideturtle()
                 
-                self.text_amount
-                self.text_amount.text = f'Amount\t{self.player.describe_amount_food()}'
-                self.text_amount.write()
+                self.text_amount_food.text = f'Amount food\t{self.player.describe_amount_food()}'
+                self.text_amount_food.write()
 
     def __is_wall(self):
         if any((abs(self.player.xcor()) >= self.config.SCREEN_SIZE,
